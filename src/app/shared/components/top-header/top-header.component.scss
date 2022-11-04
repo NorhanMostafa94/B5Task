@@ -1,0 +1,15 @@
+@import "abstracts/mixins";
+
+.top-header {
+  height: 48px;
+}
+
+@include mobile {
+  .top-header {
+    &__text {
+      &-center {
+        margin: 10px;
+      }
+    }
+  }
+}
