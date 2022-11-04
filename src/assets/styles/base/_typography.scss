@@ -51,9 +51,9 @@
 }
 
 .font-2-regular-14 {
-  @include font("poppins", 400, 14px, 19px);
+  @include font("openSans", 400, 14px, 19px);
 }
 
 .font-2-regular-12 {
-  @include font("poppins", 400, 12px, 16px);
+  @include font("openSans", 400, 12px, 16px);
 }
