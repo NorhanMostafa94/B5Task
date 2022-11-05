@@ -1,0 +1,7 @@
+@import 'abstracts/variables';
+
+.pages{
+    &__header{
+        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.05);
+    }
+}
