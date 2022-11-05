@@ -1,0 +1,27 @@
+@import "abstracts/variables";
+
+.home-header {
+  height: 130px;
+  &__logo{
+    width: 22%;
+  }
+  &__icons{
+    width: 22%;
+      &-icon {
+        position: relative;
+        &.dot {
+          color: $white;
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          bottom: -5px;
+          margin: 0 -5px;
+          background-color: $orange;
+          border-radius: 50%;
+        }
+        &.cart {
+          margin-inline-start: 40px;
+        }
+      }
+  }
+}
