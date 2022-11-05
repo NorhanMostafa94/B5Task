@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 // external modules
 import { NgSelectModule } from '@ng-select/ng-select';
 
 // components
-import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { DropdownComponent, SearchComponent } from './components';
 
+const BASEMODULES = [CommonModule, FormsModule];
 const MODULES = [NgSelectModule];
 
-const COMPONENTS = [DropdownComponent];
+const COMPONENTS = [DropdownComponent, SearchComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule, ...MODULES],
+  imports: [...BASEMODULES, ...MODULES],
   exports: [...COMPONENTS],
 })
 export class ControlsModule {}
