@@ -15,6 +15,8 @@ export class DropdownComponent implements OnInit {
   @Input() bindName = 'name';
   @Input() placeholder = 'Please select';
 
+  @Input() class: string = '';
+
   @Output('onChange') onChange = new EventEmitter<any>();
 
   constructor() {}

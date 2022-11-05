@@ -1,0 +1,15 @@
+@import "abstracts/variables";
+
+.dropdown-with-search {
+  border: 1px solid $primary-light-2;
+  background-color: $primary-light-5;
+  border-radius: 12px;
+  &__dropdown {
+    width: 20%;
+  }
+  &__search {
+    border-inline-start: 1px solid $primary-light-2;
+    padding-inline-start: 24px;
+    margin-inline-start: 24px;
+  }
+}
