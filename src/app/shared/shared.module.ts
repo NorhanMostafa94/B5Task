@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TopHeaderComponent } from './components/top-header/top-header.component';
+import { SvgComponent, TopHeaderComponent, ControlsModule } from './components';
 
-const COMPONENTS = [TopHeaderComponent];
+const BASEMODULES = [CommonModule];
+
+const MODULES = [ControlsModule];
+
+const COMPONENTS = [TopHeaderComponent, SvgComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],
-  imports: [CommonModule],
+  imports: [...BASEMODULES, ...MODULES],
   exports: [...COMPONENTS],
 })
 export class SharedModule {}

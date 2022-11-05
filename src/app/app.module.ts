@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-const BASEMODULES = [CoreModule, HttpClientModule, SharedModule];
+const MODULES = [CoreModule, HttpClientModule, SharedModule];
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, ...BASEMODULES],
+  imports: [BrowserModule, AppRoutingModule, ...MODULES],
   providers: [],
   bootstrap: [AppComponent],
 })

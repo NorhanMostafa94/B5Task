@@ -10,7 +10,13 @@
   line-height: $lineHeight;
 }
 
-@mixin scrollbars($size, $foreground-color, $background-color, $border-radius: 0) {
+// scroll bar
+@mixin scrollbars(
+  $size,
+  $foreground-color,
+  $background-color,
+  $border-radius: 0
+) {
   &::-webkit-scrollbar {
     width: $size;
     height: $size;
@@ -26,6 +32,25 @@
     &:hover {
       background-color: $background-color;
     }
+  }
+}
+
+// input placeholder
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
   }
 }
 

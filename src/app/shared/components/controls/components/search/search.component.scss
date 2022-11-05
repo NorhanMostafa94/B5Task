@@ -1,0 +1,16 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.search {
+  &__control {
+    border: 0;
+    margin-inline-end: 17px;
+    outline: none;
+    color: $primary;
+    &::placeholder{
+        @include input-placeholder{
+            color: $primary-light-1;
+        }
+    }
+  }
+}
