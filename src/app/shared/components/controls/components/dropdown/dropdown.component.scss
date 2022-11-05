@@ -80,8 +80,7 @@
 
   .ng-select-container {
     z-index: 1;
-    margin: 7px 0 0;
-    padding: 10px 15px !important;
+    // padding: 0 15px !important;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -114,6 +113,7 @@
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: 100%;
+      margin-inline-start: 20px;
     }
   }
   .ng-has-value {
@@ -154,6 +154,9 @@
     .ng-select-container {
       .ng-value-container {
         @include font("poppins", 700, 15px, 22px);
+        .ng-placeholder {
+          @include font("poppins", 700, 15px, 22px);
+        }
       }
     }
   }

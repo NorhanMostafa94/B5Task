@@ -1,0 +1,21 @@
+<div class="dropdown-with-search padding-x-16 padding-y-10 d-flex align-items-center">
+  <div class="dropdown-with-search__dropdown">
+    <app-dropdown
+      [options]="options"
+      [bindName]="bindName"
+      [placeholder]="dropdownPlaceholder"
+      [searchable]="searchable"
+      [clearable]="clearable"
+      [isMultiple]="isMultiple"
+      (onChange)="dropdownChange($event)"
+      class="bold"
+    ></app-dropdown>
+  </div>
+  <div class="dropdown-with-search__search flex-grow-1">
+    <app-search
+      [placeholder]="searchPlaceholder"
+      (onSearch)="search($event)"
+      (onSearchEnter)="searchWithEnter($event)"
+    ></app-search>
+  </div>
+</div>

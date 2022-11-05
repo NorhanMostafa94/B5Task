@@ -7,9 +7,8 @@
   [multiple]="isMultiple"
   [closeOnSelect]="!isMultiple"
   [notFoundText]="'No items'"
-  class="dropdown"
+  class="dropdown {{ class }}"
   (change)="selectionChange($event)"
   #select
-  [ngClass]="{'bold': true}"
 >
 </ng-select>
