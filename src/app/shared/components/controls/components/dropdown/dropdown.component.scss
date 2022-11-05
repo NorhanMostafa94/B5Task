@@ -1,0 +1,160 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+:host ::ng-deep.ng-select {
+  &.ng-select-opened {
+    .ng-arrow-wrapper {
+      transform: rotateX(180deg);
+    }
+    .ng-select-container {
+      color: $primary;
+    }
+    .ng-dropdown-panel {
+      border-top-right-radius: 0px;
+      border-top-left-radius: 0px;
+      height: auto;
+      max-height: 180px;
+      background-color: $white;
+      overflow-y: hidden;
+      color: $primary-light-2;
+      border: 1px solid $primary-light-1 !important;
+      margin-top: 10px;
+      border-radius: 8px;
+
+      .ng-dropdown-panel-items {
+        @include scrollbars(8px, $white, $primary-light-2, 10px);
+        height: 100%;
+        min-height: max-content;
+        max-height: 160px;
+        .ng-option {
+          padding: 10px 15px;
+          @include font("poppins", 500, 15px, 22px);
+          display: flex;
+          align-items: center;
+          .ng-option-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $primary;
+            height: 100%;
+            @include font("poppins", 500, 15px, 22px);
+          }
+
+          &.ng-option-selected {
+            .ng-option-label {
+              color: $primary;
+              .icon {
+                display: block;
+              }
+            }
+            background: $secondary-light-1;
+          }
+
+          &.ng-option-selected {
+            font-size: 5rem;
+          }
+
+          &:hover {
+            background: $secondary-light-2;
+          }
+        }
+      }
+    }
+  }
+
+  &.ng-select-multiple {
+    .ng-select-container {
+      .ng-value-container {
+        overflow-y: auto;
+        .ng-input {
+          padding-left: unset !important;
+          padding-right: unset !important;
+          caret-color: transparent;
+        }
+      }
+      .ng-clear-wrapper {
+        margin-inline-start: 10px;
+      }
+    }
+  }
+
+  .ng-select-container {
+    z-index: 1;
+    margin: 7px 0 0;
+    padding: 10px 15px !important;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 0px;
+    color: $primary;
+
+    .ng-value-container {
+      padding-left: unset !important;
+      color: $primary;
+      display: flex;
+      align-items: center;
+      @include font("poppins", 500, 15px, 22px);
+
+      justify-content: flex-start;
+      .ng-placeholder {
+        color: $primary;
+        @include font("poppins", 500, 15px, 22px);
+      }
+      .ng-input {
+        input {
+          caret-color: transparent;
+        }
+      }
+    }
+
+    .ng-arrow-wrapper {
+      width: 14px;
+      height: 7px;
+      background-image: url("../../../../../../assets/images/icons/arrow-down.svg");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: 100%;
+    }
+  }
+  .ng-has-value {
+    justify-content: flex-start;
+    .ng-value-container {
+      .ng-placeholder {
+        display: none;
+      }
+    }
+    .ng-value {
+      position: relative;
+      margin-inline-end: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      .ng-value-icon {
+        position: absolute;
+        right: -12px;
+        font-weight: bold;
+        font-size: 1.3rem;
+        line-height: 1;
+        color: $primary-light-1;
+        padding: 2px;
+        display: inline-block;
+      }
+      .ng-value-label {
+        .icon {
+          display: none;
+        }
+      }
+    }
+  }
+  &-disabled {
+    background-color: rgba($color: $primary, $alpha: 0.2);
+  }
+
+  &.bold {
+    .ng-select-container {
+      .ng-value-container {
+        @include font("poppins", 700, 15px, 22px);
+      }
+    }
+  }
+}

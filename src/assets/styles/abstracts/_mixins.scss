@@ -10,6 +10,25 @@
   line-height: $lineHeight;
 }
 
+@mixin scrollbars($size, $foreground-color, $background-color, $border-radius: 0) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $background-color;
+    border-radius: $border-radius;
+    &:hover {
+      background-color: $background-color;
+    }
+  }
+}
+
 //  media query start from tablet
 @mixin mobile {
   @media (max-width: 576px) {

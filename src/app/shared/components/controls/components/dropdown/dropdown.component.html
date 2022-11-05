@@ -1,0 +1,15 @@
+<ng-select
+  [items]="options"
+  [bindLabel]="bindName"
+  [placeholder]="placeholder"
+  [searchable]="searchable"
+  [clearable]="clearable"
+  [multiple]="isMultiple"
+  [closeOnSelect]="!isMultiple"
+  [notFoundText]="'No items'"
+  class="dropdown"
+  (change)="selectionChange($event)"
+  #select
+  [ngClass]="{'bold': true}"
+>
+</ng-select>

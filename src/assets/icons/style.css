@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'b5icons';
+  src:  url('fonts/b5icons.eot?ffvjys');
+  src:  url('fonts/b5icons.eot?ffvjys#iefix') format('embedded-opentype'),
+    url('fonts/b5icons.ttf?ffvjys') format('truetype'),
+    url('fonts/b5icons.woff?ffvjys') format('woff'),
+    url('fonts/b5icons.svg?ffvjys#b5icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="b5-"], [class*=" b5-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'b5icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.b5-arrow-down:before {
+  content: "\e900";
+}
