@@ -7,10 +7,26 @@
     </div>
     <div class="home__inner-page">
       <div class="row">
-        <div class="col-sm-3">
-          <app-side-bar [title]="'Categories'" [list]="categories"></app-side-bar>
+        <div class="col-sm-3 side-bar">
+          <app-side-bar
+            [title]="'Categories'"
+            [list]="categories"
+            (onItemClicked)="getProductsByCategory($event)"
+          ></app-side-bar>
         </div>
-        <div class="col-sm-9">
+        <div
+          class="col-sm-9 list"
+          infiniteScroll
+          [scrollWindow]="false"
+          [infiniteScrollDistance]="0.8"
+          [infiniteScrollThrottle]="0"
+          (scrolled)="onLoadMore()"
+        >
+          <div class="row">
+            <div class="col-sm-4 margin-b-39" *ngFor="let product of products">
+              <app-home-card [product]="product"></app-home-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>

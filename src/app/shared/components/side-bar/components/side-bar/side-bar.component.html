@@ -1,7 +1,13 @@
 <div class="side-bar">
-  <div class="side-bar__title font-semibold-18 primary-color margin-b-16">{{ title }}</div>
+  <div class="side-bar__title font-semibold-18 primary-color margin-b-16">
+    {{ title }}
+  </div>
   <div class="side-bar__list">
-    <div class="side-bar__list-item font-2-regular-14 secondary-color underline cursor-pointer margin-y-12" *ngFor="let item of list">
+    <div
+      class="side-bar__list-item font-2-regular-14 secondary-color underline cursor-pointer margin-y-12"
+      *ngFor="let item of list"
+      (click)="getClickedItem(item)"
+    >
       {{ item }}
     </div>
   </div>
