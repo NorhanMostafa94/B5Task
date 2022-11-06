@@ -1,7 +1,20 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
 .home {
-  height: calc(100% - 48px);
+  height: 100%;
+  overflow: hidden;
   &__inner-page {
     height: calc(100% - 178px);
-    overflow-y: scroll;
+    .side-bar {
+      height: 500px;
+      overflow-y: scroll;
+      @include scrollbars(8px, $white, $primary-light-2, 10px);
+    }
+    .list {
+      height: 600px;
+      overflow-y: scroll;
+      @include scrollbars(8px, $white, $primary-light-2, 10px);
+    }
   }
 }

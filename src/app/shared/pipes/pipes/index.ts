@@ -1,1 +1,1 @@
-export { EllipseTextPipe } from './ellipse-text.pipe';
+export * from './ellipse-text.pipe';
