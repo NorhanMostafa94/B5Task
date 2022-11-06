@@ -1,7 +1,15 @@
-@import 'abstracts/variables';
+@import "abstracts/variables";
 
-.pages{
-    &__header{
-        border-bottom: 1px solid rgba($color: $primary, $alpha: 0.05);
-    }
+.pages {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    border-bottom: 1px solid rgba($color: $primary, $alpha: 0.05);
+  }
+  &__inner-page {
+    height: calc(100% - 48px);
+    overflow-y: auto;
+    flex: 1 1 auto;
+  }
 }
