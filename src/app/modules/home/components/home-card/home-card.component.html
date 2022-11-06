@@ -1,0 +1,36 @@
+<div class="card padding-16">
+  <div class="card__image position-relative overflow-hidden">
+    <span
+      class="card__image-tag position-absolute font-semibold-12 secondary-color margin-12"
+      *ngIf="product.discountPercentage"
+      >{{ product.discountPercentage }} %</span
+    >
+    <img
+      [src]="product.thumbnail"
+      onerror="this.src = 'assets/images/img-placeholder.png'"
+      alt="product-image"
+      srcset=""
+    />
+  </div>
+  <h3 class="font-medium-15 primary-color margin-t-16">
+    {{ product.title | ellipseText: 30 }}
+  </h3>
+  <p class="font-2-regular-12 primary-color">
+    {{ product.description | ellipseText: 40 }}
+  </p>
+  <div class="card__footer d-flex align-items-center justify-content-between">
+    <div class="card__footer-price d-flex flex-column">
+      <span class="font-semibold-18 primary-color">
+        {{ product.price }} USD
+      </span>
+      <span class="stock font-semibold-12 line-through" *ngIf="product.stock">
+        {{ product.stock }}</span
+      >
+    </div>
+    <div class="card__footer-btn">
+      <button class="buy-btn btn btn--sm btn--primary font-bold-15" (click)="buyNow()">
+        Buy now
+      </button>
+    </div>
+  </div>
+</div>
