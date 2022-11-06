@@ -1,4 +1,5 @@
 @import "abstracts/variables";
+@import "abstracts/mixins";
 
 .pages {
   height: 100%;
@@ -9,7 +10,8 @@
   }
   &__inner-page {
     height: calc(100% - 48px);
-    overflow-y: auto;
+    // overflow-y: auto;
     flex: 1 1 auto;
+    @include scrollbars(8px, $white, $primary-light-2, 10px);
   }
 }
