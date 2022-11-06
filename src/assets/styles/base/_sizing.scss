@@ -13,6 +13,18 @@
 }
 
 @for $i from 1 through 100 {
+  .padding-b-#{$i} {
+    padding-bottom: #{$i}px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .padding-t-#{$i} {
+    padding-top: #{$i}px;
+  }
+}
+
+@for $i from 1 through 100 {
   .padding-#{$i} {
     padding: #{$i}px;
   }
@@ -29,6 +41,18 @@
   .margin-y-#{$i} {
     margin-top: #{$i}px;
     margin-bottom: #{$i}px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .margin-b-#{$i} {
+    margin-bottom: #{$i}px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .margin-t-#{$i} {
+    margin-top: #{$i}px;
   }
 }
 
