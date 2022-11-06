@@ -6,29 +6,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./side-bar.component.scss'],
 })
 export class SideBarComponent implements OnInit {
-  @Input() title?: string = 'Categories';
-  @Input() list: string[] = [
-    'smartphones',
-    'laptops',
-    'fragrances',
-    'skincare',
-    'groceries',
-    'home-decoration',
-    'furniture',
-    'tops',
-    'womens-dresses',
-    'womens-shoes',
-    'mens-shirts',
-    'mens-shoes',
-    'mens-watches',
-    'womens-watches',
-    'womens-bags',
-    'womens-jewellery',
-    'sunglasses',
-    'automotive',
-    'motorcycle',
-    'lighting',
-  ];
+  @Input() title?: string;
+  @Input() list: string[] = [];
 
   @Output() onItemClicked = new EventEmitter<string>();
   constructor() {}
