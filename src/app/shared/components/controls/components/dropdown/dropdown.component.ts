@@ -17,11 +17,17 @@ export class DropdownComponent implements OnInit {
 
   @Input() class: string = '';
 
+  @Input() isFirstSelected: boolean = false;
+
   @Output('onChange') onChange = new EventEmitter<any>();
+
+  selected: any;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.options.length && this.isFirstSelected) this.selected = this.options[0];
+  }
 
   /**
    * `selectionChange()`

@@ -1,0 +1,13 @@
+<div class="filter d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center justify-content-between flex-wrap">
+      <div class="col-sm-12 col-md-1 filter__dropdown" *ngFor="let option of options">
+        <app-dropdown
+          [options]="option.options"
+          [isFirstSelected]="isFirstSelected"
+          (onChange)="dropdownChange($event)"
+        ></app-dropdown>
+      </div>
+    </div>
+  </div>
+</div>

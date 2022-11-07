@@ -1,7 +1,7 @@
 <div class="home">
   <div class="container">
-    <div class="row">
-      <div class="home__header">
+    <div class="home__header">
+      <div class="row">
         <app-home-header
           [options]="categories"
           [bindName]="'name'"
@@ -10,6 +10,17 @@
         ></app-home-header>
       </div>
     </div>
+  </div>
+  <div class="row margin-y-30">
+    <div class="home__filter" *ngIf="filters.length">
+      <app-home-filter
+        [options]="filters"
+        [isFirstSelected]="true"
+        (onDropdownChange)="getProductsByCategory($event)"
+      ></app-home-filter>
+    </div>
+  </div>
+  <div class="container">
     <div class="home__inner-page mt-3">
       <div class="row">
         <div class="col-4 col-sm-3 side-bar">
@@ -28,7 +39,10 @@
           (scrolled)="onLoadMore()"
         >
           <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-4 margin-b-39" *ngFor="let product of products">
+            <div
+              class="col-sm-12 col-md-6 col-lg-4 margin-b-39"
+              *ngFor="let product of products"
+            >
               <app-home-card
                 [product]="product"
                 (onBuyNow)="addToCart()"

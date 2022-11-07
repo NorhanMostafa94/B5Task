@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment } from 'src/app/shared/actions/cart/cart.actions';
-import { IOptions } from 'src/app/shared/models';
+import { IFilterOptions, IOptions } from 'src/app/shared/models';
 import {
   IProduct,
   IProductsRequestPayload,
@@ -25,6 +25,8 @@ export class HomeComponent implements OnInit {
   };
   total: number = 0;
 
+  filters: IFilterOptions[] = [];
+
   constructor(
     private homeService: HomeService,
     private store: Store<{ count: number }>
@@ -32,6 +34,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
+    this.getFilters();
     this.getProducts();
   }
 
@@ -45,6 +48,56 @@ export class HomeComponent implements OnInit {
         res.map((category) =>
           this.categories.push({ id: category, name: category })
         );
+      },
+      error: () => {},
+    });
+  }
+
+  /**
+   * `getFilters()`
+   * @description to get filter list
+   */
+  getFilters() {
+    this.homeService.getCategories().subscribe({
+      next: (res: string[]) => {
+        this.filters = [
+          {
+            id: 'Bakery',
+            options: [],
+          },
+          {
+            id: 'Fruit and vegetables',
+            options: [],
+          },
+          {
+            id: 'Meat and fish',
+            options: [],
+          },
+          {
+            id: 'Drinks',
+            options: [],
+          },
+          {
+            id: 'Kitchen',
+            options: [],
+          },
+          {
+            id: 'Special nutrition',
+            options: [],
+          },
+          {
+            id: 'Baby',
+            options: [],
+          },
+          {
+            id: 'Pharmacy',
+            options: [],
+          },
+        ];
+        res.map((category) => {
+          let cat = { id: category, name: category };
+          this.filters.map((filter) => filter.options.push(cat));
+        });
       },
       error: () => {},
     });

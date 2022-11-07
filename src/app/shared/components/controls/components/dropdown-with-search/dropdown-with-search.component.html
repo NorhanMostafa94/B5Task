@@ -1,4 +1,6 @@
-<div class="dropdown-with-search padding-x-16 padding-y-10 d-flex align-items-center">
+<div
+  class="dropdown-with-search padding-x-16 padding-y-10 d-flex align-items-center"
+>
   <div class="dropdown-with-search__dropdown" *ngIf="options.length">
     <app-dropdown
       [options]="options"
@@ -7,6 +9,7 @@
       [searchable]="searchable"
       [clearable]="clearable"
       [isMultiple]="isMultiple"
+      [isFirstSelected]="isFirstSelected"
       (onChange)="dropdownChange($event)"
       class="bold"
     ></app-dropdown>

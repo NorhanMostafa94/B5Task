@@ -14,6 +14,7 @@ export class DropdownWithSearchComponent implements OnInit {
   @Input() dropdownPlaceholder = 'All categories';
 
   @Input() searchPlaceholder = 'Search Products, categories ...';
+  @Input() isFirstSelected: boolean = false;
 
   @Output() onSearch = new EventEmitter<string>();
   @Output() onSearchEnter = new EventEmitter<string>();
