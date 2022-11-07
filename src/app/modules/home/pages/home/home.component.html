@@ -24,7 +24,10 @@
         >
           <div class="row">
             <div class="col-sm-4 margin-b-39" *ngFor="let product of products">
-              <app-home-card [product]="product"></app-home-card>
+              <app-home-card
+                [product]="product"
+                (onBuyNow)="addToCart()"
+              ></app-home-card>
             </div>
           </div>
         </div>
