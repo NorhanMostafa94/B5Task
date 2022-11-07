@@ -7,6 +7,7 @@
   [multiple]="isMultiple"
   [closeOnSelect]="!isMultiple"
   [notFoundText]="'No items'"
+  [(ngModel)]="selected"
   class="dropdown {{ class }}"
   (change)="selectionChange($event)"
   #select

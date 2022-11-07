@@ -10,7 +10,6 @@
   }
   &__inner-page {
     height: calc(100% - 48px);
-    // overflow-y: auto;
     flex: 1 1 auto;
     @include scrollbars(8px, $white, $primary-light-2, 10px);
   }

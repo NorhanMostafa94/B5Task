@@ -8,6 +8,7 @@ html {
 body {
   font-size: 1.6rem !important;
   height: 100%;
+  @include scrollbars(8px, $white, $primary-light-2, 10px);
 
   &.rtl {
     direction: rtl;

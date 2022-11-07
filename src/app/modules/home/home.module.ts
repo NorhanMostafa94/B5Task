@@ -5,7 +5,12 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages';
-import { HomeHeaderComponent, HomeCardComponent } from './components';
+import {
+  HomeHeaderComponent,
+  HomeCardComponent,
+  HomeFilterComponent,
+} from './components';
+
 import { ControlsModule, SideBarModule } from 'src/app/shared/components';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 
@@ -20,10 +25,14 @@ const MODULES = [
 
 const PAGES = [HomeComponent];
 
-const COMPONENTS = [HomeHeaderComponent];
+const COMPONENTS = [
+  HomeHeaderComponent,
+  HomeCardComponent,
+  HomeFilterComponent,
+];
 
 @NgModule({
-  declarations: [...COMPONENTS, ...PAGES, HomeCardComponent],
+  declarations: [...COMPONENTS, ...PAGES],
   imports: [...BASEMODULES, ...MODULES],
 })
 export class HomeModule {}

@@ -1,0 +1,17 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+.filter {
+  height: 55px;
+  background-color: $primary-light-5;
+}
+
+@include tablet-mobile {
+  .filter {
+    height: auto;
+    padding: 10px 0;
+    &__dropdown{
+        margin-bottom: 10px;
+    }
+  }
+}
