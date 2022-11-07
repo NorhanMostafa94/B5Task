@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HomeComponent } from './home.component';
+import { Store, StoreModule } from '@ngrx/store';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -10,7 +11,8 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, StoreModule.forRoot({})],
+      providers: [Store],
     }).compileComponents();
   });
 
