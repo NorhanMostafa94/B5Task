@@ -6,6 +6,7 @@
 
 @include mobile {
   .top-header {
+    height: 90px;
     &__text {
       &-center {
         margin: 10px;
