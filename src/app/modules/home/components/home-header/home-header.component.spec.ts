@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Store, StoreModule } from '@ngrx/store';
+import { counterReducer } from 'src/app/shared/actions/cart/cart.reducer';
 
 import { HomeHeaderComponent } from './home-header.component';
 
@@ -8,9 +10,10 @@ describe('HomeHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeHeaderComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeHeaderComponent],
+      imports: [StoreModule.forRoot({})],
+      providers: [Store],
+    }).compileComponents();
   });
 
   beforeEach(() => {
