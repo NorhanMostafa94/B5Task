@@ -3,7 +3,18 @@
     <img src="assets/images/logo.png" alt="logo image" srcset="" />
   </div>
   <div class="home-header__dropdown-with-search flex-grow-1">
-    <app-dropdown-with-search></app-dropdown-with-search>
+    <app-dropdown-with-search
+      [options]="options"
+      [bindName]="bindName"
+      [dropdownPlaceholder]="dropdownPlaceholder"
+      [searchable]="searchable"
+      [clearable]="clearable"
+      [isMultiple]="isMultiple"
+      [searchPlaceholder]="searchPlaceholder"
+      (onDropdownChange)="dropdownChange($event)"
+      (onSearch)="search($event)"
+      (onSearchEnter)="searchWithEnter($event)"
+    ></app-dropdown-with-search>
   </div>
   <div class="home-header__icons d-flex align-items-center justify-content-end">
     <div class="home-header__icons-icon">
@@ -15,7 +26,11 @@
       <svg width="24" height="24" viewBox="0 0 24 24">
         <use xlink:href="#cart"></use>
       </svg>
-      <div class="home-header__icons-icon dot font-semibold-12 d-flex align-items-center justify-content-center">{{count$ | async}}</div>
+      <div
+        class="home-header__icons-icon dot font-semibold-12 d-flex align-items-center justify-content-center"
+      >
+        {{ count$ | async }}
+      </div>
     </div>
   </div>
 </div>

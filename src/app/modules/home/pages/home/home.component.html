@@ -2,12 +2,17 @@
   <div class="container">
     <div class="row">
       <div class="home__header">
-        <app-home-header></app-home-header>
+        <app-home-header
+          [options]="categories"
+          [bindName]="'name'"
+          (onDropdownChange)="getProductsByCategory($event)"
+          (onSearchEnter)="search($event)"
+        ></app-home-header>
       </div>
     </div>
     <div class="home__inner-page">
       <div class="row">
-        <div class="col-sm-3 side-bar">
+        <div class="col-4 col-sm-3 side-bar">
           <app-side-bar
             [title]="'Categories'"
             [list]="categories"
@@ -15,7 +20,7 @@
           ></app-side-bar>
         </div>
         <div
-          class="col-sm-9 list"
+          class="col-8 col-sm-9 list"
           infiniteScroll
           [scrollWindow]="false"
           [infiniteScrollDistance]="0.8"
@@ -23,7 +28,7 @@
           (scrolled)="onLoadMore()"
         >
           <div class="row">
-            <div class="col-sm-4 margin-b-39" *ngFor="let product of products">
+            <div class="col-sm-12 col-md-6 col-lg-4 margin-b-39" *ngFor="let product of products">
               <app-home-card
                 [product]="product"
                 (onBuyNow)="addToCart()"

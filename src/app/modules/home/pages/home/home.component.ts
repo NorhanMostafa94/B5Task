@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment } from 'src/app/shared/actions/cart/cart.actions';
+import { IOptions } from 'src/app/shared/models';
 import {
   IProduct,
   IProductsRequestPayload,
@@ -15,7 +16,7 @@ import { HomeService } from '../../services/home.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  categories: string[] = [];
+  categories: IOptions[] = [];
   products: IProduct[] = [];
   productsRequestPayload: IProductsRequestPayload = {
     search: '',
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     skip: 0,
   };
   total: number = 0;
+
   constructor(
     private homeService: HomeService,
     private store: Store<{ count: number }>
@@ -34,28 +36,44 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * `addToCart()`
-   * @description to add item to cart
-   */
-  addToCart(): void {
-    this.store.dispatch(increment());
-  }
-
-  /**
    * `getCategories()`
    * @description to get categories
    */
   getCategories(): void {
     this.homeService.getCategories().subscribe({
-      next: (res: string[]) => (this.categories = res),
+      next: (res: string[]) => {
+        res.map((category) =>
+          this.categories.push({ id: category, name: category })
+        );
+      },
       error: () => {},
     });
   }
 
+  /**
+   * `getProducts()`
+   * @description to get products
+   */
   getProducts(): void {
     this.homeService.getProducts(this.productsRequestPayload).subscribe({
       next: (res: IProductsRequestResponse) => {
         this.products = this.products.concat(res.products);
+        this.total = res.total;
+      },
+    });
+  }
+
+  /**
+   * `search()`
+   * @description to search in products
+   * @param searchKeyword {string}
+   */
+  search(searchKeyword: string) {
+    this.productsRequestPayload.search = searchKeyword;
+    this.resetPayload();
+    this.homeService.getProducts(this.productsRequestPayload).subscribe({
+      next: (res: IProductsRequestResponse) => {
+        this.products = res.products;
         this.total = res.total;
       },
     });
@@ -76,14 +94,22 @@ export class HomeComponent implements OnInit {
    * @description to get products by category
    * @param category {string}
    */
-  getProductsByCategory(category: string): void {
+  getProductsByCategory(category: IOptions): void {
     this.resetPayload();
-    this.homeService.getProductByCategory(category).subscribe({
+    this.homeService.getProductByCategory(category.id).subscribe({
       next: (res: IProductsRequestResponse) => {
         this.products = res.products;
         this.total = res.total;
       },
     });
+  }
+
+  /**
+   * `addToCart()`
+   * @description to add item to cart
+   */
+  addToCart(): void {
+    this.store.dispatch(increment());
   }
 
   /**
