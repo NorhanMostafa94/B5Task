@@ -25,4 +25,11 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('it should reset payload', () => {
+    component.resetPayload();
+    expect(component.productsRequestPayload.skip).toEqual(0);
+    expect(component.products.length).toEqual(0);
+    expect(component.total).toEqual(0);
+  });
 });
