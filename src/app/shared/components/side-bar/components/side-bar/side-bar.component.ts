@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IOptions } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +8,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
   @Input() title?: string;
-  @Input() list: string[] = [];
+  @Input() list: IOptions[] = [];
 
-  @Output() onItemClicked = new EventEmitter<string>();
+  @Output() onItemClicked = new EventEmitter<any>();
   constructor() {}
 
   ngOnInit(): void {}
@@ -19,7 +20,7 @@ export class SideBarComponent implements OnInit {
    * @description emit the item clicked from the list
    * @param item {string}
    */
-  getClickedItem(item: string) {
+  getClickedItem(item: IOptions) {
     this.onItemClicked.emit(item);
   }
 }
