@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { increment } from 'src/app/shared/actions/cart/cart.actions';
 import {
   IProduct,
   IProductsRequestPayload,
@@ -19,8 +22,11 @@ export class HomeComponent implements OnInit {
     limit: 10,
     skip: 0,
   };
-  total: number = 0;  
-  constructor(private homeService: HomeService) {}
+  total: number = 0;
+  constructor(
+    private homeService: HomeService,
+    private store: Store<{ count: number }>
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -28,17 +34,25 @@ export class HomeComponent implements OnInit {
   }
 
   /**
+   * `addToCart()`
+   * @description to add item to cart
+   */
+  addToCart(): void {
+    this.store.dispatch(increment());
+  }
+
+  /**
    * `getCategories()`
    * @description to get categories
    */
-  getCategories() {
+  getCategories(): void {
     this.homeService.getCategories().subscribe({
       next: (res: string[]) => (this.categories = res),
       error: () => {},
     });
   }
 
-  getProducts() {
+  getProducts(): void {
     this.homeService.getProducts(this.productsRequestPayload).subscribe({
       next: (res: IProductsRequestResponse) => {
         this.products = this.products.concat(res.products);
